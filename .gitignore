@@ -1,16 +1,17 @@
 node_modules/
-out/
+/out/
 .remotion/
 
 # Your recordings, references and cuts stay on your machine.
-videos/
-referencias/
-public/reels/
-reels/
+# The leading slash keeps these to the project root: src/reels/ holds the code of each reel.
+/videos/
+/referencias/
+/public/reels/
+/reels/
 
 # Models are downloaded by tools/preparar.py.
-tools/models/*
-!tools/models/.gitkeep
+/tools/models/*
+!/tools/models/.gitkeep
 
 __pycache__/
 *.pyc
