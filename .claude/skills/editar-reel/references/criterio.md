@@ -168,3 +168,18 @@ Se completa la plantilla que ya está en el archivo:
   quedó.
 
 El modelo de cómo queda un estilo completo es [`estilo-ejemplo.md`](estilo-ejemplo.md).
+
+## Mostrar el estilo antes de tocar el video
+
+Con el estilo escrito, se le muestran a la persona sus colores y tipografías en la `Muestra`, que no
+necesita video:
+
+```bash
+npx remotion still src/index.ts Muestra out/muestra-10.png --frame=10
+npx remotion still src/index.ts Muestra out/muestra-80.png --frame=80
+npx remotion still src/index.ts Muestra out/muestra-240.png --frame=240
+```
+
+Son la portada, un panel con subtítulos y el cierre. Se le pasan las rutas completas y se le pregunta
+si algo no va (un color, una tipografía). Lo que cambie se corrige en `estilo/estilo.json` antes de
+cortar el video.

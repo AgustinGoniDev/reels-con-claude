@@ -47,8 +47,9 @@ proyecto trae una skill que primero baja el criterio:
    git clone https://github.com/AgustinGoniDev/reels-con-claude.git
    ```
 
-2. **Poner la grabación** en la carpeta `videos/` (si no existe, se crea). Los reels de referencia,
-   si los hay, van en `referencias/`.
+2. **Crear la carpeta `videos/`** dentro del proyecto y poner ahí la grabación. Los reels de
+   referencia, si los hay, van en otra carpeta nueva, `referencias/`. Ninguna de las dos se sube a
+   GitHub.
 3. **Abrir la carpeta en Claude Code.** En la terminal:
 
    ```bash

@@ -84,6 +84,8 @@ Todo el detalle está en [`references/criterio.md`](references/criterio.md). En 
 2. **Las referencias se miden** con `tools/analizar_referencia.py` y se miran las hojas de cuadros.
 3. **Preguntas cerradas sobre lo que se vio,** con el cuadro a la vista: de dos a cuatro.
 4. **Se escriben `estilo/estilo.json` y `estilo/estilo.md`.** El JSON queda con `"defined": true`.
+5. **Se le muestra el estilo en la `Muestra`** (tres cuadros, sin video) y se corrigen colores o
+   tipografías antes de cortar.
 
 Si la persona no tiene referencias, no se insiste: la vista previa compara dos versiones bien
 distintas y de ahí sale el criterio.
