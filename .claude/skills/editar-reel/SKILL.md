@@ -61,7 +61,8 @@ composición completa. Su video no está en el repositorio, así que se lee, no 
    NVIDIA y 1,6 GB con placa. Se avisa el tamaño y se baja con `python tools/preparar.py --whisper`,
    con su OK.
 5. **Prueba de que Remotion anda:** se saca un cuadro de la `Muestra`, una pieza de 9 segundos sin
-   video. La primera vez Remotion baja su navegador interno, y eso tarda un poco.
+   video. Antes tiene que estar el navegador con el que Remotion dibuja (unos 100 MB): lo baja
+   `--instalar`, o `npx remotion browser ensure` si `preparar.py` lo marca como faltante.
 
    ```bash
    npx remotion still src/index.ts Muestra out/muestra.png --frame=80
@@ -146,6 +147,13 @@ El comentario se aplica en el archivo que corresponde, y se rehace solo desde ah
 
 ## Problemas conocidos
 
+- **"Failed to launch the browser process" con `chrome-headless-shell.exe ENOENT`, en Windows:** la
+  carpeta del proyecto está en una ruta demasiado larga (más de unos 100 caracteres, típico dentro de
+  OneDrive) y el navegador de Remotion se descomprimió a medias. Se mueve el proyecto a una ruta corta
+  (`C:\reels-con-claude`), se borra `node_modules/.remotion` y se corre `npx remotion browser ensure`.
+  `preparar.py` avisa las dos cosas. Lo mismo pasa si la primera descarga se cortó.
+- **npm 11 avisa que `esbuild` tiene un script de instalación sin aprobar.** No hace falta aprobarlo:
+  el render anda igual.
 - **Los tiempos de Whisper sobre la fuente** pueden estar corridos 0,25 s. Por eso los tiempos del
   reel salen de transcribir otra vez el corte, nunca de la fuente.
 - **Si falta `cublas64_12.dll`** en Windows con placa NVIDIA, `tools/common.py` agrega las carpetas

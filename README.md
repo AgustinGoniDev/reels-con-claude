@@ -47,6 +47,10 @@ proyecto trae una skill que primero baja el criterio:
    git clone https://github.com/AgustinGoniDev/reels-con-claude.git
    ```
 
+   **En Windows, conviene una ruta corta,** como `C:\reels-con-claude`. Dentro de carpetas muy
+   profundas (por ejemplo, adentro de OneDrive) Windows corta las rutas largas y Remotion no puede
+   renderizar.
+
 2. **Crear la carpeta `videos/`** dentro del proyecto y poner ahí la grabación. Los reels de
    referencia, si los hay, van en otra carpeta nueva, `referencias/`. Ninguna de las dos se sube a
    GitHub.

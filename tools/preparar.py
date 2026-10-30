@@ -23,6 +23,8 @@ from common import CPU_MODEL, FACE_MODEL, GPU_MODEL, MODELS, VOICE_MODEL, has_cu
 
 PROJECT = Path(__file__).resolve().parent.parent
 WINDOWS = platform.system() == 'Windows'
+MAX_PROJECT_PATH = 100
+"""Measured: a project at 83 characters renders; one at 170 leaves the browser half-unpacked."""
 
 DOWNLOADS = {
     FACE_MODEL: ('https://github.com/opencv/opencv_zoo/raw/main/models/face_detection_yunet/'
@@ -58,6 +60,23 @@ def system_fix(name):
     return f'Windows: {win}  |  macOS: {mac}  (then open a new terminal)'
 
 
+def check_path():
+    """Remotion's render browser nests deep folders; past Windows' 260-character limit it
+    unpacks half-way and then fails with 'Failed to launch the browser process'."""
+    if WINDOWS:
+        length = len(str(PROJECT))
+        report(length <= MAX_PROJECT_PATH, 'Project path short enough for Windows',
+               f'{length} characters', f'Move the project to a shorter path, such as C:\\reels-con-claude '
+               f'(at most {MAX_PROJECT_PATH} characters)')
+
+
+def browser_ready():
+    root = PROJECT / 'node_modules' / '.remotion' / 'chrome-headless-shell'
+    if not root.is_dir():
+        return None
+    return any(p.is_file() for p in root.rglob('chrome-headless-shell*') if p.suffix in ('', '.exe'))
+
+
 def check_node():
     v = version_of(['node', '--version'])
     major = int(re.findall(r'\d+', v)[0]) if v else 0
@@ -65,6 +84,14 @@ def check_node():
     installed = (PROJECT / 'node_modules' / 'remotion').is_dir()
     report(installed, 'Project packages (Remotion)', '' if installed else 'not installed',
            'python tools/preparar.py --instalar')
+    if installed:
+        ready = browser_ready()
+        if ready is False:
+            report(False, 'Remotion render browser', 'half-downloaded',
+                   'Delete node_modules/.remotion and run: npx remotion browser ensure')
+        else:
+            report(bool(ready), 'Remotion render browser', '' if ready else 'not downloaded yet (about 100 MB)',
+                   'npx remotion browser ensure')
 
 
 def check_ffmpeg():
@@ -118,9 +145,16 @@ def install():
     print('Installing Python packages...')
     subprocess.run([sys.executable, '-m', 'pip', 'install', '-r', str(PROJECT / 'requirements.txt')], check=True)
     npm = 'npm.cmd' if WINDOWS else 'npm'
+    npx = 'npx.cmd' if WINDOWS else 'npx'
     if shutil.which(npm):
         print('Installing Node packages...')
         subprocess.run([npm, 'install', '--no-audit', '--no-fund'], cwd=PROJECT, check=True)
+        if WINDOWS and len(str(PROJECT)) > MAX_PROJECT_PATH:
+            print(f'The project path is longer than {MAX_PROJECT_PATH} characters: '
+                  'move it to a shorter one before downloading the render browser.')
+        else:
+            print('Downloading the Remotion render browser...')
+            subprocess.run([npx, 'remotion', 'browser', 'ensure'], cwd=PROJECT, check=True)
     else:
         print('Node is missing: install it first, then run this again.')
     MODELS.mkdir(exist_ok=True)
@@ -156,6 +190,7 @@ def main():
         download_whisper()
 
     print(f'\nThis machine: {platform.system()} {platform.machine()}')
+    check_path()
     check_node()
     check_ffmpeg()
     check_python()
