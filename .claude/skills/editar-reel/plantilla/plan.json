@@ -1,0 +1,14 @@
+{
+  "source": "videos/ARCHIVO.mp4",
+  "words": "source_words.json",
+  "out": "../../public/reels/SLUG",
+  "camera": {"x": 0, "y": 0, "w": 1080, "h": 1920},
+  "speed": 1.1,
+  "min_pause": 0.3,
+  "fps": 30,
+  "language": "es",
+  "vocabulary": "Nombre, Marca, Producto.",
+  "segments": [
+    {"start": 0.0, "end": 0.0, "text": "Primera frase... última frase del cierre."}
+  ]
+}

@@ -1,0 +1,18 @@
+node_modules/
+out/
+.remotion/
+
+# Your recordings, references and cuts stay on your machine.
+videos/
+referencias/
+public/reels/
+reels/
+
+# Models are downloaded by tools/preparar.py.
+tools/models/*
+!tools/models/.gitkeep
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

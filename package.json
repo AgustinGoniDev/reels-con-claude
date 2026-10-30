@@ -1,0 +1,21 @@
+{
+  "name": "reels-con-claude",
+  "private": true,
+  "description": "Vertical reels with motion graphics, edited with Claude Code and Remotion",
+  "license": "MIT",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.536",
+    "@remotion/google-fonts": "4.0.536",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "remotion": "4.0.536"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

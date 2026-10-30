@@ -1,0 +1,19 @@
+{
+  "note": "The plan that cut the example reel. The original recording is not in the repository; this file shows a finished plan.",
+  "source": "videos/segundo-cerebro.mov",
+  "words": "source_words.json",
+  "out": "../../public/reels/ejemplo",
+  "camera": {"x": 0, "y": 0, "w": 1080, "h": 1920},
+  "speed": 1.1,
+  "min_pause": 0.3,
+  "fps": 30,
+  "language": "es",
+  "vocabulary": "Claude, ChatGPT, IA, segundo cerebro, sistema operativo de IA, pipeline comercial, output.",
+  "segments": [
+    {
+      "start": 0.95,
+      "end": 73.3,
+      "text": "Lo que la mayoría no entiende es que para armar un segundo cerebro... comentame acá abajo, cerebro, y te mando una guía completa."
+    }
+  ]
+}

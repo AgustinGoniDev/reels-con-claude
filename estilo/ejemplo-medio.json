@@ -1,0 +1,40 @@
+{
+  "defined": true,
+  "name": "medio (ejemplo de Agustín Goñi)",
+  "platform": "instagram",
+  "colors": {
+    "accent": "#00C4A0",
+    "title": "#FAF4D3",
+    "text": "#FFFFFF",
+    "strike": "#FF6B6B",
+    "panel": "#0C1618"
+  },
+  "fonts": {
+    "title": "Montserrat",
+    "text": "Inter",
+    "highlight": "Instrument Serif",
+    "label": "JetBrains Mono"
+  },
+  "captions": {
+    "mode": "lockup",
+    "y": 1400,
+    "keySize": 124,
+    "uppercase": false
+  },
+  "camera": {
+    "cuts": true,
+    "punches": true,
+    "push": 0.02
+  },
+  "sound": {
+    "effects": true,
+    "gain": 0.6
+  },
+  "cut": {
+    "speed": 1.1,
+    "minPause": 0.3
+  },
+  "ending": {
+    "lead": "Comentá"
+  }
+}
