@@ -157,6 +157,11 @@ El comentario se aplica en el archivo que corresponde, y se rehace solo desde ah
 ## Lo que no está verificado
 
 - **Se probó en Windows 11 con placa NVIDIA.** En macOS y en máquinas sin placa no se corrió.
+- **La instalación desde cero no se corrió:** en la máquina de prueba ya estaba todo, así que
+  `preparar.py --instalar` y `--whisper` no se ejecutaron. Los links de descarga de los modelos sí
+  responden.
+- **La fase de criterio no se hizo todavía con una persona.** Las herramientas que usa (el análisis de
+  referencias, la vista previa A/B y la comparación) sí se probaron.
 - **El reel de `ejemplo/` es el único reel completo** hecho con este kit. La plantilla y la vista
   previa A/B se probaron con el corte de ese mismo video, no con una grabación nueva.
 - **Las zonas que tapan TikTok y YouTube Shorts** no están medidas: las del kit son las de Instagram.
